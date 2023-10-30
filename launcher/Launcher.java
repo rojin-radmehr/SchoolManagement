@@ -1,5 +1,6 @@
 package launcher;
 
+import java.io.IOException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -9,9 +10,11 @@ import datamodel.Admin;
 import datamodel.Course;
 import datamodel.Enrollment;
 import datamodel.Students;
+import service.InstructorService;
+import service.PayService;
 
 public class Launcher {
-	public static void main(String[] a) throws ParseException {
+	public static void main(String[] a) throws ParseException,IOException {
 		SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyy");
         Admin admin = new Admin();
         admin.setAdminId(202301);
@@ -39,10 +42,13 @@ public class Launcher {
         courses.add("Python");
         courses.add("C++");
         
-        student.setCourse(courses);
-        courses.forEach(c->System.out.println(c));
+        student.setCourse(courses);//courses.forEach(c->System.out.println(c));
         
-        
+        PayService studentService = new PayService();
+        System.out.println(studentService.read());
+
+		InstructorService instructorService = new InstructorService();
+		System.out.println(instructorService.readCSV());
         
     }
 	

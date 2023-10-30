@@ -1,15 +1,25 @@
 package datamodel;
 
-public class Instructors {
-	private int Id;
+import java.math.BigInteger;
+
+public class Instructors extends Students {
+	private String Id;
 	private String name;
-	private int number;
+	private BigInteger number;
 	private String subject;
 	private String email;
-	public int getId() {
+	private String target_year;
+	
+	public String getTarget_year() {
+		return target_year;
+	}
+	public void setTarget_year(String target_year) {
+		this.target_year = target_year;
+	}
+	public String getId() {
 		return Id;
 	}
-	public void setId(int id) {
+	public void setId(String id) {
 		Id = id;
 	}
 	public String getName() {
@@ -18,10 +28,11 @@ public class Instructors {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public int getNumber() {
+	
+	public BigInteger getNumber() {
 		return number;
 	}
-	public void setNumber(int number) {
+	public void setNumber(BigInteger number) {
 		this.number = number;
 	}
 	public String getSubject() {
