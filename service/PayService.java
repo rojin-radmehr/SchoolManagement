@@ -5,7 +5,9 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+
 import datamodel.Students;
 
 public class PayService {
@@ -52,4 +54,10 @@ public class PayService {
 		br.close();
 		return studentList;
 	}	
+	public void sortByStudentYear(List<Students> studs) throws IOException {
+		studs.sort((p1,p2)-> p1.getYear().compareTo(p2.getYear()));
+		System.out.println(studs);
+		
+		Collections.sort(studs, (s1, s2) -> Integer.valueOf(s1.getAge()).compareTo(Integer.valueOf(s2.getAge())));
+	}
 }
